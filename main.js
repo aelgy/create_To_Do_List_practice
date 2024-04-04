@@ -1,9 +1,20 @@
 function addToDo() {
   const content = document.getElementById('typeToDo').value;
+  // 處理重要事項
+  const optionValue = document.querySelector('.form-select').value;
   const ul = document.querySelector('.list-group');
   // 處理 li 元素
   const li = document.createElement('li');
-  li.classList.add('list-group-item', 'border-0');
+  if (optionValue == "2") {
+    li.classList.add('list-group-item', 'list-group-item-warning'
+    )
+  }
+  else if (optionValue == "3") {
+    li.classList.add('list-group-item', 'list-group-item-danger')
+  } else {
+    li.classList.add('list-group-item', 'border-0');
+  }
+
   // 處理 input 元素
   const liInput = document.createElement('input');
   liInput.classList.add('form-check-input', 'me-1');
@@ -13,9 +24,9 @@ function addToDo() {
   liLabel.classList.add('form-check-label');
   // 處理 button
   const removeBtn = document.createElement('button');
-  removeBtn.classList.add('btn', 'btn-primary', 'btn-sm');
+  removeBtn.classList.add('btn', 'btn-secondary', 'btn-sm');
   removeBtn.setAttribute('type', 'button');
-  removeBtn.setAttribute('onclick', 'removeBtn()');
+  removeBtn.setAttribute('onclick', 'removeAction()');
   removeBtn.textContent = 'delete';
   // 加入驗證
   if (content != "") {
@@ -28,7 +39,7 @@ function addToDo() {
   }
 }
 
-function removeBtn() {
+function removeAction() {
   event.target.parentElement.remove()
 }
 

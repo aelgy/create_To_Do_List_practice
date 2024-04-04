@@ -19,20 +19,27 @@
           <div class="col-auto">
             <label class="col-form-label" id="">請輸入待辦事項：</label>
           </div>
-          <div class="col-auto">
+          <div class="col-4">
             <input type="text" id="typeToDo" class="form-control">
           </div>
-          <div class="col-auto">
-            <button type="button" class="btn btn-primary" onclick="addToDo()"
-              style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+          <div class="col-4" id="options">
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Choose Level</option>
+              <option value="1">Normal</option>
+              <option value="2">Important</option>
+              <option value="3">Urgent</option>
+            </select>
+          </div>
+          <div class="col-1">
+            <button type="button" class="btn btn-primary" onclick="addToDo()">
               add
             </button>
-            <button type="button" class="btn btn-outline-primary btn-sm" onclick="outputFile()">export</button>
           </div>
         </div>
 
         <ul class="list-group" id="listGroup">
         </ul>
+        <button type="button" class="btn btn-outline-primary btn-sm" onclick="outputFile()">export</button>
       </div>
       <div class="col-2">
       </div>
