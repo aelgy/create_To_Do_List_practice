@@ -16,7 +16,7 @@ function addToDo() {
   removeBtn.classList.add('btn', 'btn-primary', 'btn-sm');
   removeBtn.setAttribute('type', 'button');
   removeBtn.setAttribute('onclick', 'removeBtn()');
-  removeBtn.textContent = '刪除';
+  removeBtn.textContent = 'delete';
   // 加入驗證
   if (content != "") {
     liLabel.textContent = content;
@@ -32,3 +32,13 @@ function removeBtn() {
   event.target.parentElement.remove()
 }
 
+function outputFile() {
+  const listGroup = document.getElementById('listGroup').children
+  let text = "今日待辦：";
+  let num = 1;
+  for (let i of listGroup) {
+    text = text + num + ". " + i.children[1].textContent + " "
+    num++
+  }
+  alert(text)
+}

@@ -25,12 +25,13 @@
           <div class="col-auto">
             <button type="button" class="btn btn-primary" onclick="addToDo()"
               style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-              新增
+              add
             </button>
+            <button type="button" class="btn btn-outline-primary btn-sm" onclick="outputFile()">export</button>
           </div>
         </div>
 
-        <ul class="list-group">
+        <ul class="list-group" id="listGroup">
         </ul>
       </div>
       <div class="col-2">
