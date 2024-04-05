@@ -12,36 +12,44 @@
 
   <div class="container">
     <div class="row" id="content">
-      <div class="col-2">
+      <div class="col-3">
       </div>
-      <div class="col-8 bg-light" id="toDo">
+      <div class="col-6 bg-light" id="toDo">
         <div class="row g-3 align-items-center" id="addToDo">
           <div class="col-auto">
             <label class="col-form-label" id="">請輸入待辦事項：</label>
           </div>
-          <div class="col-4">
-            <input type="text" id="typeToDo" class="form-control">
+          <div class="col-6">
+            <input type="text" id="typeToDo" class="form-control border border-3">
           </div>
-          <div class="col-4" id="options">
-            <select class="form-select" aria-label="Default select example">
+        </div>
+
+        <div class="row">
+          <div class="col-6" id="options">
+            <select class="form-select" aria-label="Default select example" onchange="colorChange()">
               <option selected>Choose Level</option>
               <option value="1">Normal</option>
               <option value="2">Important</option>
               <option value="3">Urgent</option>
             </select>
           </div>
-          <div class="col-1">
+          <div class="col-auto">
             <button type="button" class="btn btn-primary" onclick="addToDo()">
               add
             </button>
           </div>
+          <div class="col-auto">
+            <button type="button" class="btn btn-primary" onclick="outputFile()">export</button>
+          </div>
         </div>
+
+        <hr>
 
         <ul class="list-group" id="listGroup">
         </ul>
-        <button type="button" class="btn btn-outline-primary btn-sm" onclick="outputFile()">export</button>
+
       </div>
-      <div class="col-2">
+      <div class="col-3">
       </div>
     </div>
   </div>

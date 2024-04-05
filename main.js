@@ -53,3 +53,17 @@ function outputFile() {
   }
   alert(text)
 }
+
+function colorChange() {
+  const selectValue = document.querySelector(".form-select").value;
+  const inputClass = document.querySelector(".form-control");
+  if (selectValue == "2") {
+    inputClass.classList.remove('border-danger');
+    inputClass.classList.add('border-warning');
+  } else if (selectValue == "3") {
+    inputClass.classList.remove('border-warning');
+    inputClass.classList.add('border-danger');
+  } else if (selectValue == "1") {
+    inputClass.classList.remove('border-danger', 'border-warning');
+  }
+}
