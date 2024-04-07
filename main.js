@@ -19,6 +19,7 @@ function addToDo() {
   const liInput = document.createElement('input');
   liInput.classList.add('form-check-input', 'me-1');
   liInput.setAttribute('type', 'checkbox')
+  liInput.setAttribute('onClick', 'completeToggle()')
   // 處理 label 元素
   const liLabel = document.createElement('label');
   liLabel.classList.add('form-check-label');
@@ -28,12 +29,17 @@ function addToDo() {
   removeBtn.setAttribute('type', 'button');
   removeBtn.setAttribute('onclick', 'removeAction()');
   removeBtn.textContent = 'delete';
+  // 處理已完成
+  const liSpan = document.createElement('button');
+  liSpan.classList.add('btn', 'btn-outline-success', 'btn-sm');
+  liSpan.setAttribute('type', 'button');
+  liSpan.setAttribute('style', 'display:none')
+  liSpan.textContent = '已完成';
   // 加入驗證
   if (content != "") {
     liLabel.textContent = content;
     ul.append(li);
-    li.append(liInput, liLabel);
-    li.append(removeBtn);
+    li.append(liInput, liLabel, liSpan, removeBtn);
   } else {
     alert("請輸入正確文字")
   }
@@ -67,3 +73,12 @@ function colorChange() {
     inputClass.classList.remove('border-danger', 'border-warning');
   }
 }
+
+function completeToggle() {
+  const liSpan = event.target.nextElementSibling.nextElementSibling;
+  if (liSpan.style.display === "none") {
+    liSpan.style.display = "inline-block";
+  } else {
+    liSpan.style.display = "none";
+  }
+} 
