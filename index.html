@@ -12,9 +12,9 @@
 
   <div class="container">
     <div class="row" id="content">
-      <div class="col-3">
+      <div class="col-2">
       </div>
-      <div class="col-6 bg-light" id="toDo">
+      <div class="col-8 bg-light" id="toDo">
         <div class="row g-3 align-items-center" id="addToDo">
           <div class="col-auto">
             <label class="col-form-label" id="">請輸入待辦事項：</label>
@@ -33,13 +33,18 @@
               <option value="3">Urgent</option>
             </select>
           </div>
+        </div>
+        <div class="buttons">
           <div class="col-auto">
-            <button type="button" class="btn btn-primary" onclick="addToDo()">
+            <button type="button" class="btn btn-primary btn-buttons" onclick="addToDo()">
               add
             </button>
           </div>
           <div class="col-auto">
-            <button type="button" class="btn btn-primary" onclick="outputFile()">export</button>
+            <button type="button" class="btn btn-primary btn-buttons" onclick="outputFile()">export</button>
+          </div>
+          <div class="col-auto">
+            <button type="button" class="btn btn-outline-primary btn-buttons" onclick="storage()">Save</button>
           </div>
         </div>
 
@@ -49,7 +54,7 @@
         </ul>
 
       </div>
-      <div class="col-3">
+      <div class="col-2">
       </div>
     </div>
   </div>

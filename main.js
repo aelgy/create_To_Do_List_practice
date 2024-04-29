@@ -61,13 +61,11 @@ function removeBtn() {
 
 // 添加 li 的 border
 function addInputBorder() {
-  const optionValue = document.querySelector('.form-select').value;
+  const value = document.querySelector('.form-select').value;
   const li = event.target.parentElement.parentElement.nextElementSibling.nextElementSibling.lastChild;
-  if (optionValue == "2") {
-    li.classList.add('list-group-item', 'list-group-item-warning'
-    )
-  }
-  else if (optionValue == "3") {
+  if (value == "2") {
+    li.classList.add('list-group-item', 'list-group-item-warning')
+  } else if (value == "3") {
     li.classList.add('list-group-item', 'list-group-item-danger')
   } else {
     li.classList.add('list-group-item', 'border-0');
@@ -115,4 +113,61 @@ function completeToggle() {
   } else {
     liSpan.style.display = "none";
   }
-} 
+}
+
+const toDo = [];
+// localstorage
+function storage() {
+  const li = document.querySelectorAll('li');
+  for (let i = 0; i < li.length; i++) {
+    // 取得 label 的值
+    const label = li[i].firstElementChild.nextElementSibling;
+    const item = label.innerText
+    let number = 1;
+    // 把 li 的 classList 變成數字
+    if (li[i].classList.contains('list-group-item-warning')) {
+      number = 2;
+    } else if (li[i].classList.contains('list-group-item-danger')) {
+      number = 3;
+    }
+
+    toDo.push({
+      item: item,
+      number: number,
+    })
+  }
+  localStorage.setItem("toDo", JSON.stringify(toDo))
+  alert('saved')
+}
+https://jsfiddle.net/aelgy369/yp2h48sz/142/#
+
+// 復原 localstorage
+if (localStorage.getItem("toDo")) {
+  const toDo = JSON.parse(localStorage.getItem("toDo"));
+  for (let i = 0; i < toDo.length; i++) {
+    const content = toDo[i].item;
+    const value = toDo[i].number;
+    //
+    const ul = document.querySelector('.list-group');
+    // 處理 li 
+    const li = document.createElement('li');
+    const removeButton = removeBtn()
+    const liSpan = completeBtn();
+    // 處理 input 元素
+    const liInput = inputCreate();
+    // 處理 label 元素
+    const liLabel = document.createElement('label');
+    liLabel.classList.add('form-check-label');
+    // 加入驗證
+    liLabel.textContent = content;
+    ul.append(li);
+    li.append(liInput, liLabel, liSpan, removeButton);
+    if (value == "2") {
+      li.classList.add('list-group-item', 'list-group-item-warning')
+    } else if (value == "3") {
+      li.classList.add('list-group-item', 'list-group-item-danger')
+    } else {
+      li.classList.add('list-group-item', 'border-0');
+    }
+  }
+}

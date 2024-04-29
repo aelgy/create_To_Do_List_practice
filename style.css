@@ -17,3 +17,12 @@ label.form-check-label {
 button.btn-outline-success {
   margin-right: 16px;
 }
+
+.buttons {
+  margin-top: 24px;
+  display: flex;
+}
+
+button.btn-buttons {
+  margin: 0px 4px;
+}
